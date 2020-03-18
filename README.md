@@ -25,7 +25,7 @@
 
 | Index | /cuisines | GET | Displays list of all cuisines |
 
-| New | /cuisines/{id} | POST | Offers a form to create a cuisine |
+| Create | /cuisines/{id} | GET | Offers a form to create a cuisine |
 
 | Create | /cuisines/{id} | POST | Create a new cuisine object |
 
@@ -39,7 +39,7 @@
 
 | Index | /restaurants | GET | Displays list of all restaurants |
 
-| New | /restaurants/{id} | POST | Offers a form to create a restaurant |
+| Create | /restaurants/{id} | GET | Offers a form to create a restaurant |
 
 | Create | /restaurtants/{id} | POST | Create a new restaurant object |
 
@@ -55,8 +55,8 @@
 
 ## WHAT WE WORKED ON 03.18.20
 
-- Best Restaurant project
--
+- Best Restaurant project as described in today's exercise plan
+- Updated Best Restaurant project to include many-to-many structure and migrations
 
 ## Description
 
