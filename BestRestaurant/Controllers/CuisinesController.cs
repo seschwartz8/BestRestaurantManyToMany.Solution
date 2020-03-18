@@ -6,22 +6,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BestRestaurant.Controllers
 {
-  public class CategoriesController : Controller
+  public class CuisinesController : Controller
   {
     private readonly BestRestaurantContext _db;
 
-    public CategoriesController(BestRestaurantContext db)
+    public CuisinesController(BestRestaurantContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Cuisine> model = _db.Categories.ToList();
+      List<Cuisine> model = _db.Cuisines.ToList();
       return View(model);
     }
 
-    public ActionResult Create()
+    public ActionResult New()
     {
       return View();
     }
@@ -29,25 +29,25 @@ namespace BestRestaurant.Controllers
     [HttpPost]
     public ActionResult Create(Cuisine cuisine)
     {
-      _db.Categories.Add(cuisine);
+      _db.Cuisines.Add(cuisine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      Cuisine thisCuisine = _db.Categories.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisCuisine = _db.Categories.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
 
     [HttpPost]
-    public ActionResult Edit(Cuisine cuisine)
+    public ActionResult Update(Cuisine cuisine)
     {
       _db.Entry(cuisine).State = EntityState.Modified;
       _db.SaveChanges();
@@ -56,15 +56,15 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisCuisine = _db.Categories.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisCuisine = _db.Categories.FirstOrDefault(cuisine => cuisine.CuisineId == id);
-      _db.Categories.Remove(thisCuisine);
+      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      _db.Cuisines.Remove(thisCuisine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

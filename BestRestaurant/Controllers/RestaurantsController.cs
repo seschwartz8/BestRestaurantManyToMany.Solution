@@ -22,9 +22,9 @@ namespace BestRestaurant.Controllers
       return View(model);
     }
 
-    public ActionResult Create()
+    public ActionResult New()
     {
-      ViewBag.CuisineId = new SelectList(_db.Categories, "CuisineId", "Name");
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
       return View();
     }
 
@@ -45,12 +45,12 @@ namespace BestRestaurant.Controllers
     public ActionResult Edit(int id)
     {
       var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
-      ViewBag.CuisineId = new SelectList(_db.Categories, "CuisineId", "Name");
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
       return View(thisRestaurant);
     }
 
     [HttpPost]
-    public ActionResult Edit(Restaurant restaurant)
+    public ActionResult Update(Restaurant restaurant)
     {
       _db.Entry(restaurant).State = EntityState.Modified;
       _db.SaveChanges();
