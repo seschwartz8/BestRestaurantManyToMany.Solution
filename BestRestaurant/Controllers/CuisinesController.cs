@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BestRestaurant.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,9 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Index()
     {
-      List<Cuisine> model = _db.Cuisines.ToList();
+      List<Cuisine>> model = _db.Cuisines.ToList();
+
+      // List<Cuisine> model = _db.Cuisines.ToList();
       return View(model);
     }
 

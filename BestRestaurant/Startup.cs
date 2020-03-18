@@ -2,6 +2,7 @@ using BestRestaurant.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,10 @@ namespace BestRestaurant
       services.AddEntityFrameworkMySql()
         .AddDbContext<BestRestaurantContext>(options => options
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<BestRestaurantContext>()
+        .AddDefaultTokenProviders();
     }
 
     public void Configure(IApplicationBuilder app)
@@ -34,6 +39,8 @@ namespace BestRestaurant
       app.UseStaticFiles();
 
       app.UseDeveloperExceptionPage();
+
+      app.UseAuthentication();
 
       app.UseMvc(routes =>
       {
