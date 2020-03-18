@@ -8,7 +8,7 @@
 
 <h4>Edit this cuisine: @Html.DisplayFor(model => model.Type)</h4>
 
-@using (Html.BeginForm("Update", "Cuisines", FormMethod.Post))
+@using (Html.BeginForm("Update", "Cuisines"))
 {
     @Html.HiddenFor(model => model.CuisineId)
 

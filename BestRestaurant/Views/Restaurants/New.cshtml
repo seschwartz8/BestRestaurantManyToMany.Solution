@@ -6,10 +6,13 @@
 
 <h4>Add a new restaurant</h4>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Restaurants"))
 {
-    @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Rating)
+    @Html.TextBoxFor(model => model.Rating)
 
     @Html.LabelFor(model => model.Cuisine)
     @Html.DropDownList("CuisineId")

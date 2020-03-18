@@ -6,14 +6,14 @@
 
 <h2>Edit</h2>
 
-<h4>Edit this restaurant: @Html.DisplayFor(model => model.Description)</h4>
+<h4>Edit this restaurant: @Html.DisplayFor(model => model.Name)</h4>
 
-@using (Html.BeginForm("Update", "Restaurants", FormMethod.Post))
+@using (Html.BeginForm("Update", "Restaurants"))
 {
     @Html.HiddenFor(model => model.RestaurantId)
 
-    @Html.LabelFor(model => model.Description)
-    @Html.EditorFor(model => model.Description)
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
 
     @Html.LabelFor(model => model.Cuisine)
     @Html.DropDownList("CuisineId")

@@ -1,5 +1,7 @@
 @{
   Layout = "_Layout";
+@* 
+  var cuisines = ViewData["Cuisines"]; *@
 }
 
 @using BestRestaurant.Models;
@@ -12,11 +14,13 @@
   <h3>No restaurants have been added yet!</h3>
 } 
 
-@foreach (Restaurant item in Model)
+@foreach (Restaurant restaurant in Model)
 {
-  <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.RestaurantId }) | @item.Cuisine.Name</li>
+  <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Type</li>
 }
 
-<p>@Html.ActionLink("Add new item", "New")</p>
+@if(ViewBag.Cuisines.Count != 0) {
+  <p>@Html.ActionLink("Add new restaurant", "New")</p>
+}
 
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
