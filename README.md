@@ -85,3 +85,13 @@ C#/.NET MVC website that organizes restaurant based on cuisine. This application
 ### License
 
 - This software is licensed under the MIT license.
+
+Cuisine
+CuisineId
+type
+
+Restaurant
+-RestaurantId
+-# of stars
+-name
+-CuisineId
