@@ -57,10 +57,11 @@
 
 - Best Restaurant project as described in today's exercise plan
 - Updated Best Restaurant project to include many-to-many structure and migrations
+- Updated Best Restaurant project to include authentication and logging in/accounts
 
 ## Description
 
-C#/.NET MVC website that organizes restaurant based on cuisine. This application allows you to create cuisines and restaurants per type of cuisine. You can view, create, delete, and update your cuisines and restaurants.
+C#/.NET MVC website that organizes restaurant based on cuisine. This application allows you to create cuisines and restaurants per type of cuisine. The website will prompt you to register an account and log in to view restaurants. Then you can view, create, delete, and update your cuisines and restaurants.
 
 ## Installation Requirements
 
