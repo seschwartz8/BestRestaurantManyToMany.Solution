@@ -1,26 +1,35 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using BestRestaurant.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace BestRestaurant.Controllers
 {
+  [Authorize]
   public class RestaurantsController : Controller
   {
     private readonly BestRestaurantContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public RestaurantsController(BestRestaurantContext db)
+    public RestaurantsController(UserManager<ApplicationUser> userManager, BestRestaurantContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
       ViewBag.Cuisines = (List<Cuisine>) _db.Cuisines.ToList();
-      List<Restaurant> model = _db.Restaurants.ToList();
-      return View(model);
+      var userRestaurants = _db.Restaurants.Where(entry => entry.User.Id == currentUser.Id);
+      return View(userRestaurants);
     }
 
     public ActionResult Create()
@@ -30,8 +39,11 @@ namespace BestRestaurant.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Restaurant restaurant, int CuisineId)
+    public async Task<ActionResult> Create(Restaurant restaurant, int CuisineId)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      restaurant.User = currentUser;
       _db.Restaurants.Add(restaurant);
       if (CuisineId != 0)
       {

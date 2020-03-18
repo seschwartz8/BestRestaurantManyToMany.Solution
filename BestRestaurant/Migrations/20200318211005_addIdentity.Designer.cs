@@ -3,14 +3,16 @@ using System;
 using BestRestaurant.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BestRestaurant.Migrations
 {
     [DbContext(typeof(BestRestaurantContext))]
-    partial class BestRestaurantContextModelSnapshot : ModelSnapshot
+    [Migration("20200318211005_addIdentity")]
+    partial class addIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -106,11 +108,7 @@ namespace BestRestaurant.Migrations
 
                     b.Property<int>("Rating");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("RestaurantId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Restaurants");
                 });
@@ -233,13 +231,6 @@ namespace BestRestaurant.Migrations
                         .WithMany("Cuisines")
                         .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BestRestaurant.Models.Restaurant", b =>
-                {
-                    b.HasOne("BestRestaurant.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

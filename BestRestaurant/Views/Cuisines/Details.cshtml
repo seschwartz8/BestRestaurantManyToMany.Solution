@@ -21,6 +21,7 @@
 
   <h4>@Html.ActionLink($"{join.Restaurant.Name}", "Details", "Restaurants", new { id = join.Restaurant.RestaurantId })</h4>
   <p>Rating: @join.Restaurant.Rating</p>
+}
 
 <div class="links">
   <p>@Html.ActionLink("Add restaurant", "Create", "Restaurants")</p>
