@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurant.Models.Restaurant
+
+<h2>Add a cuisine</h2>
+
+<h4>Add a cuisine to this restaurant: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.RestaurantId)
+
+    @Html.Label("Select cuisine")
+    @Html.DropDownList("CuisineId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to restaurants", "Index")</p>

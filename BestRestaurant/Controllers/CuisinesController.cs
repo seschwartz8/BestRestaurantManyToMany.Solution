@@ -21,7 +21,7 @@ namespace BestRestaurant.Controllers
       return View(model);
     }
 
-    public ActionResult New()
+    public ActionResult Create()
     {
       return View();
     }
@@ -36,7 +36,10 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Details(int id)
     {
-      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      var thisCuisine = _db.Cuisines
+        .Include(cuisine => cuisine.Restaurants)
+        .ThenInclude(join => join.Restaurant)
+        .FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
 

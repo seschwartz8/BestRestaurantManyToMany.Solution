@@ -5,23 +5,27 @@
 @using BestRestaurant.Models;
 @model BestRestaurant.Models.Cuisine;
 
-<h2>Cuisine Details</h2>
+<h1>Cuisine Details</h1>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h3>
+<h2>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h2>
 
-<ul>
 @if (@Model.Restaurants.Count == 0)
 {
-  <p>no restaurants found</p>
+  <p>No restaurants found</p>
 }
 
-@foreach (Restaurant restaurant in @Model.Restaurants)
+<h3>Restaurants:</h3>
+
+@foreach (var join in @Model.Restaurants)
 {
-  <li>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurants", new { id = restaurant.RestaurantId })</li>
-}
-</ul>
 
-<p>@Html.ActionLink("Add restaurant", "New", "Restaurants")</p>
-<p>@Html.ActionLink("Back to cuisines", "Index")</p>
-<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p>
-<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p>
+  <h4>@Html.ActionLink($"{join.Restaurant.Name}", "Details", "Restaurants", new { id = join.Restaurant.RestaurantId })</h4>
+  <p>Rating: @join.Restaurant.Rating</p>
+
+<div class="links">
+  <p>@Html.ActionLink("Add restaurant", "Create", "Restaurants")</p>
+  <p>@Html.ActionLink("Back to cuisines", "Index")</p>
+  <p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p>
+  <p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })<p>
+</div>
+

@@ -7,6 +7,19 @@
 <h2>Restaurant Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+<h3>Cuisines:</h3>
+@foreach (var join in @Model.Cuisines)
+{
+  <p>@join.Cuisine.Type</p>
+  @using(Html.BeginForm("DeleteCuisine", "Cuisines"))
+  {
+    @Html.Hidden("joinId", @join.CuisineRestaurantId)
+    <input type="submit" value="Delete">
+  }
+}
+
 <p>@Html.ActionLink("Back to restaurants", "Index")</p>
 <p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Add a Cuisine", "AddCuisine", new { id = Model.RestaurantId })</p>
 <p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
