@@ -58,6 +58,7 @@
 - Best Restaurant project as described in today's exercise plan
 - Updated Best Restaurant project to include many-to-many structure and migrations
 - Updated Best Restaurant project to include authentication and logging in/accounts
+- Research on authorization
 
 ## Description
 
