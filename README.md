@@ -53,12 +53,16 @@
 
 </details>
 
-## WHAT WE WORKED ON 03.18.20
+<details>
+  <summary>## WHAT WE WORKED ON 03.18.20</summary>
+  - Best Restaurant project as described in today's exercise plan
+  - Updated Best Restaurant project to include many-to-many structure and migrations
+  - Updated Best Restaurant project to include authentication and logging in/accounts
+  - Research on authorization
+</details>
 
-- Best Restaurant project as described in today's exercise plan
-- Updated Best Restaurant project to include many-to-many structure and migrations
-- Updated Best Restaurant project to include authentication and logging in/accounts
-- Research on authorization
+
+
 
 ## WHAT WE WORKED ON 03.19.20
 
