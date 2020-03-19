@@ -60,6 +60,12 @@
 - Updated Best Restaurant project to include authentication and logging in/accounts
 - Research on authorization
 
+## WHAT WE WORKED ON 03.19.20
+
+- Updated Best Restaurant project to include Review objects within restaurants
+- Interview prep/whiteboarding questions
+- Continued research and practice problems on advanced topics, since we finished the day's work
+
 ## Description
 
 C#/.NET MVC website that organizes restaurant based on cuisine. This application allows you to create cuisines and restaurants per type of cuisine. The website will prompt you to register an account and log in to view restaurants. Then you can view, create, delete, and update your cuisines and restaurants. This project focuses on using .NET Core MVC, Authentication, SQL databases/Migration, and many-to-many design for data.
