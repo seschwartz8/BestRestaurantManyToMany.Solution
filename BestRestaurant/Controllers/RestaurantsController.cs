@@ -60,8 +60,6 @@ namespace BestRestaurant.Controllers
         .ThenInclude(join => join.Cuisine)
         .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
       return View(thisRestaurant);
-      // Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
-      // return View(thisRestaurant);
     }
 
     public ActionResult Edit(int id)
@@ -81,9 +79,6 @@ namespace BestRestaurant.Controllers
       _db.Entry(restaurant).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
-      // _db.Entry(restaurant).State = EntityState.Modified;
-      // _db.SaveChanges();
-      // return RedirectToAction("Index");
     }
 
     public ActionResult AddCuisine(int id)
@@ -118,14 +113,5 @@ namespace BestRestaurant.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-    // [HttpPost]
-    // public ActionResult DeleteCuisine(int joinId)
-    // {
-    //   var joinEntry = _db.CuisineRestaurant.FirstOrDefault(entry => entry.CuisineRestaurantId == joinId);
-    //   _db.CuisineRestaurant.Remove(joinEntry);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
   }
 }

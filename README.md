@@ -93,3 +93,12 @@ C#/.NET MVC website that organizes restaurant based on cuisine. This application
 ### License
 
 - This software is licensed under the MIT license.
+
+Review
+-ReviewId
+-Date of review?
+-Name of reviewer
+-Rating
+-Text
+
+Parking lot
