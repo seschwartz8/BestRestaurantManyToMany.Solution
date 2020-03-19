@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  margin-top: 8%;
+  margin-top: 10%;
 }
 
 h1 {
@@ -67,4 +67,8 @@ a:hover {
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+img {
+  max-height: 500px;
 }
