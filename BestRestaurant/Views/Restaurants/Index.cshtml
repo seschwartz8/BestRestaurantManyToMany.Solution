@@ -7,22 +7,27 @@
 
 <h1>Restaurants for @User.Identity.Name</h1>
 
-@if (@Model.Any())
-{
-  <ul>
-    @foreach (Restaurant restaurant in Model)
-    {
-      <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId })</li>
-    }
-  </ul>
-}
-else
-{
-  <h3>No restaurants have been added yet!</h3>
-} 
+<div class="content">
+  @if (@Model.Any())
+  {
+    <div>
+      @foreach (Restaurant restaurant in Model)
+      {
+        <h4>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId })</h4>
+      }
+    </div>
+  }
+  else
+  {
+    <h3>No restaurants have been added yet!</h3>
+  } 
+</div>
 
-@if(ViewBag.Cuisines.Count != 0) {
-  <p>@Html.ActionLink("Add new restaurant", "Create")</p>
-}
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<div class="links">
+  @if(ViewBag.Cuisines.Count != 0) {
+    <p>@Html.ActionLink("Add new restaurant", "Create")</p>
+  }
+
+  <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>

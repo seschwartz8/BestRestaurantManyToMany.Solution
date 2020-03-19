@@ -8,8 +8,7 @@
 
 @model BestRestaurant.Models.Review
 
-<h4>Add a new review</h4>
-<p>@ViewBag.RestaurantId</p>
+<h1>Add a new review</h1>
 @using (Html.BeginForm())
 {
   @Html.Hidden("restaurantId", new { id = ViewBag.RestaurantId })

@@ -4,22 +4,26 @@
 
 @model BestRestaurant.Models.Review
 
-<h2>Edit Review on @Model.Date</h2>
+<h1>Edit Review on @Model.Date</h1>
 
-@using (Html.BeginForm("Update", "Reviews"))
-{
-    @Html.HiddenFor(model => model.ReviewId)
-    @Html.HiddenFor(model => model.Date)
-    @Html.HiddenFor(model => model.Name)
-    @Html.HiddenFor(model => model.RestaurantId)
+<div class="content">
+  @using (Html.BeginForm("Update", "Reviews"))
+  {
+      @Html.HiddenFor(model => model.ReviewId)
+      @Html.HiddenFor(model => model.Date)
+      @Html.HiddenFor(model => model.Name)
+      @Html.HiddenFor(model => model.RestaurantId)
 
-    @Html.LabelFor(model => model.Rating)
-    @Html.EditorFor(model => model.Rating)
+      @Html.LabelFor(model => model.Rating)
+      @Html.EditorFor(model => model.Rating)
 
-    @Html.LabelFor(model => model.Text)
-    @Html.EditorFor(model => model.Text)
+      @Html.LabelFor(model => model.Text)
+      @Html.EditorFor(model => model.Text)
 
-    <input type="submit" value="Save" />
-}
+      <input type="submit" value="Save" class='btn btn-default'/>
+  }
+</div>
 
-<p>@Html.ActionLink("Back to restaurant", "Details", "Restaurants", new { id = Model.RestaurantId })</p>
+<div class='links'>
+  <p>@Html.ActionLink("Back to restaurant", "Details", "Restaurants", new { id = Model.RestaurantId })</p>
+</div>

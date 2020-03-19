@@ -5,46 +5,46 @@
 @model BestRestaurant.Models.Restaurant
 @using BestRestaurant.Models
 
-<h2>Restaurant Details</h2>
+<h1>@Html.DisplayFor(model => model.Name) Restaurant Details</h1>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
-@* Format for navigating to another controller type with the id of the parent controller *@
-<p>@Html.ActionLink("Write a review", "Create", "Reviews", new { id = @Model.RestaurantId })</p>
+<div class="content">
+  @* Format for navigating to another controller type with the id of the parent controller *@
+  <h4>@Html.ActionLink("Write a review", "Create", "Reviews", new { id = @Model.RestaurantId })</h4>
+  <h3>Reviews:</h3>
 
-<h3>Reviews:</h3>
-@* If you dont check for 0 entries the program will error out *@
-@if(@Model.Reviews.Count == 0) {
-  <h3>There are no reviews for this restaurant.</h3>
-} else {
-  @foreach (Review review in @Model.Reviews)
-{
-  <div>
-    <p>Date: @review.Date</p>
-    <p>Name: @review.Name</p>
-    <p>Rating: @review.Rating</p>
-    <p>@review.Text</p>
-    <p>@Html.ActionLink("Edit this review", "Edit", "Reviews", new { id = @review.ReviewId })</p>
-    <hr/>
+  <div class="reviews">
+    @* If you dont check for 0 entries the program will error out *@
+    @if(@Model.Reviews.Count == 0) {
+      <p>There are no reviews for this restaurant.</p>
+    } else {
+      @foreach (Review review in @Model.Reviews)
+      {
+        <div class="review">
+          <p>Date: @review.Date</p>
+          <p>Name: @review.Name</p>
+          <p>Rating: @review.Rating</p>
+          <p>@review.Text</p>
+          <p>@Html.ActionLink("Edit this review", "Edit", "Reviews", new { id = @review.ReviewId })</p>
+        </div>
+      }
+    }
   </div>
-}
-
-}
 
 
-<h3>Cuisines:</h3>
-@* Var join is for our many to many relationship *@
-@foreach (var join in @Model.Cuisines)
-{
-  <p>@join.Cuisine.Type</p>
-  @* @using(Html.BeginForm("DeleteCuisine", "Cuisines"))
+
+  <h3>Cuisines:</h3>
+  @* Var join is for our many to many relationship *@
+  @foreach (var join in @Model.Cuisines)
   {
-    @Html.Hidden("joinId", @join.CuisineRestaurantId)
-    <input type="submit" value="Delete">
-  } *@
-}
+    <p>@join.Cuisine.Type</p>
+  }
+</div>
 
-<p>@Html.ActionLink("Back to restaurants", "Index")</p>
-<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
-<p>@Html.ActionLink("Add a Cuisine", "AddCuisine", new { id = Model.RestaurantId })</p>
-<p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
+
+<div class="links">
+  <p>@Html.ActionLink("Back to restaurants", "Index")</p>
+  <p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
+  <p>@Html.ActionLink("Add a Cuisine", "AddCuisine", new { id = Model.RestaurantId })</p>
+  <p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
+</div>

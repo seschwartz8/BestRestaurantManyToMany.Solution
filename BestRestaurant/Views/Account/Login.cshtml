@@ -6,18 +6,23 @@
 
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
+<h1>Log in with your account</h1>
 <hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+<div class="content">
+  @using (Html.BeginForm())
+  {
+      @Html.LabelFor(m => m.Email)
+      @Html.TextBoxFor(m => m.Email)
+      @Html.LabelFor(m => m.Password)
+      @Html.PasswordFor(m => m.Password)
+      <input type="submit" value="Log in" class="btn btn-default" />
+  }
+</div>
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+<div class="links">
+  <p>@Html.ActionLink("No Account? Register", "Register")</p>
+  <p>@Html.ActionLink("Back", "Index")</p>
+</div>
 
-    <input type="submit" value="Log in" class="btn btn-default" />
-}
 
-<p>@Html.ActionLink("No Account? Register", "Register")</p>
-<p>@Html.ActionLink("Back", "Index")</p>
+

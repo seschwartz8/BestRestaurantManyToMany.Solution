@@ -4,11 +4,16 @@
 
 @model BestRestaurant.Models.Restaurant
 
-<h2>Are you sure you want to delete this?</h2>
+<h1>Are you sure you want to delete this?</h1>
 
-@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Delete" />
-}
-@Html.ActionLink("Back to restaurants", "Index")
+<div class="content">
+  @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+  @using (Html.BeginForm())
+  {
+      <input type="submit" value="Delete" class="btn btn-default"/>
+  }
+</div>
+
+<div class="links">
+  @Html.ActionLink("Back to restaurants", "Index")
+</div>

@@ -5,22 +5,23 @@
 @using BestRestaurant.Models;
 @model BestRestaurant.Models.Cuisine;
 
-<h1>Cuisine Details</h1>
+<h1>@Html.DisplayFor(model => model.Type) Cuisine Details</h1>
 <hr />
-<h2>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h2>
+<div class="content">
+  <h3>Restaurants:</h3>
 
-<h3>Restaurants:</h3>
+  @if (@Model.Restaurants.Count == 0)
+  {
+    <p>No restaurants found</p>
+  }
 
-@if (@Model.Restaurants.Count == 0)
-{
-  <p>No restaurants found</p>
-}
+  @foreach (var join in @Model.Restaurants)
+  {
 
-@foreach (var join in @Model.Restaurants)
-{
+    <h4>@Html.ActionLink($"{join.Restaurant.Name}", "Details", "Restaurants", new { id = join.Restaurant.RestaurantId })</h4>
+  }
+</div>
 
-  <h4>@Html.ActionLink($"{join.Restaurant.Name}", "Details", "Restaurants", new { id = join.Restaurant.RestaurantId })</h4>
-}
 
 <div class="links">
   <p>@Html.ActionLink("Add restaurant", "Create", "Restaurants")</p>

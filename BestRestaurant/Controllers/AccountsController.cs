@@ -24,6 +24,7 @@ namespace BestRestaurant.Controllers
       return View();
     }
 
+    [HttpGet("accounts/register")]
     public IActionResult Register()
     {
       return View();
@@ -44,6 +45,7 @@ namespace BestRestaurant.Controllers
       }
     }
 
+    [HttpGet("accounts/signin")]
     public ActionResult Login()
     {
       return View();

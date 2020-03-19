@@ -2,3 +2,69 @@ body {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+.container {
+  margin-top: 8%;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.links {
+  margin: 5% 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  color: steelblue;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.btn {
+  background-color: steelblue;
+  color: white;
+  margin: 10px;
+}
+
+.content {
+  margin: 5% 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 5%;
+}
+
+.review {
+  border: 2px solid steelblue;
+  padding: 10px 40px;
+  margin: 10px;
+  width: 300px;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}

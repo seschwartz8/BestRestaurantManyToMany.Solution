@@ -4,21 +4,25 @@
 
 @model BestRestaurant.Models.Restaurant
 
-<h2>Edit</h2>
+<h1>Edit</h1>
 
-<h4>Edit this restaurant: @Html.DisplayFor(model => model.Name)</h4>
+<div class="content">
+  <h4>Edit this restaurant: @Html.DisplayFor(model => model.Name)</h4>
 
-@using (Html.BeginForm("Update", "Restaurants"))
-{
-    @Html.HiddenFor(model => model.RestaurantId)
+  @using (Html.BeginForm("Update", "Restaurants"))
+  {
+      @Html.HiddenFor(model => model.RestaurantId)
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+      @Html.LabelFor(model => model.Name)
+      @Html.EditorFor(model => model.Name)
 
-    @Html.Label("Select Cuisine")
-    @Html.DropDownList("CuisineId")
+      @Html.Label("Select Cuisine")
+      @Html.DropDownList("CuisineId")
 
-    <input type="submit" value="Save" />
-}
+      <input type="submit" value="Save" class="btn btn-default"/>
+  }
+</div>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<div class="links">
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
