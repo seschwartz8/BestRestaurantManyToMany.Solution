@@ -63,6 +63,7 @@
 ## WHAT WE WORKED ON 03.19.20
 
 - Updated Best Restaurant project to include Review objects within restaurants
+- Updated Best Restaurants project to have css/styles
 - Interview prep/whiteboarding questions
 - Continued research and practice problems on advanced topics, since we finished the day's work
 
@@ -93,12 +94,3 @@ C#/.NET MVC website that organizes restaurant based on cuisine. This application
 ### License
 
 - This software is licensed under the MIT license.
-
-Review
--ReviewId
--Date of review?
--Name of reviewer
--Rating
--Text
-
-Parking lot
