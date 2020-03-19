@@ -10,7 +10,7 @@
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
 @* Format for navigating to another controller type with the id of the parent controller *@
-<p>@Html.ActionLink("Write a review", "Create", "Reviews", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Write a review", "Create", "Reviews", new { id = @Model.RestaurantId })</p>
 
 <h3>Reviews:</h3>
 @* If you dont check for 0 entries the program will error out *@
@@ -20,9 +20,9 @@
   @foreach (Review review in @Model.Reviews)
 {
   <div>
+    <p>Date: @review.Date</p>
     <h5>Name: @review.Name</h5>
-    <h5>Date: @review.Date</h5>
-    <h5>Rating: @review.Rating</h5>
+    <p>Rating: @review.Rating</p>
     <p>@review.Text</p>
   </div>
 }
@@ -35,11 +35,11 @@
 @foreach (var join in @Model.Cuisines)
 {
   <p>@join.Cuisine.Type</p>
-  @using(Html.BeginForm("DeleteCuisine", "Cuisines"))
+  @* @using(Html.BeginForm("DeleteCuisine", "Cuisines"))
   {
     @Html.Hidden("joinId", @join.CuisineRestaurantId)
     <input type="submit" value="Delete">
-  }
+  } *@
 }
 
 <p>@Html.ActionLink("Back to restaurants", "Index")</p>

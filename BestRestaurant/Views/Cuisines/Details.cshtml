@@ -9,12 +9,12 @@
 <hr />
 <h2>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h2>
 
+<h3>Restaurants:</h3>
+
 @if (@Model.Restaurants.Count == 0)
 {
   <p>No restaurants found</p>
 }
-
-<h3>Restaurants:</h3>
 
 @foreach (var join in @Model.Restaurants)
 {

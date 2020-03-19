@@ -33,27 +33,27 @@ namespace BestRestaurant.Controllers
     //   return View(userRestaurants);
     // }
 
-    public ActionResult Create(int restaurantId)
-
+    [HttpGet]
+    public ActionResult Create(int id)
     {
-      ViewBag.RestaurantId = restaurantId;
+      ViewBag.RestaurantId = id;
       return View();
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Review review, int restaurantId)
+    public ActionResult Create(Review review, int id)
     {
       // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       // var currentUser = await _userManager.FindByIdAsync(userId);
       // restaurant.User = currentUser;
-      review.RestaurantId = restaurantId;
+      review.RestaurantId = id;
       _db.Reviews.Add(review);
       // if (CuisineId != 0)
       // {
       //   _db.CuisineRestaurant.Add(new CuisineRestaurant() { CuisineId = CuisineId, RestaurantId = restaurant.RestaurantId });
       // }
       _db.SaveChanges();
-      return RedirectToAction("Details", "Restaurants", new { id = restaurantId });
+      return RedirectToAction("Index", "Restaurants", id);
     }
 
     public ActionResult Details(int id)

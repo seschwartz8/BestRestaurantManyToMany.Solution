@@ -55,10 +55,13 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Details(int id)
     {
-      var thisRestaurant = _db.Restaurants
+      Restaurant thisRestaurant = _db.Restaurants
         .Include(restaurant => restaurant.Cuisines)
         .ThenInclude(join => join.Cuisine)
         .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      //add reviews 
+      List<Review> reviews = _db.Reviews.Where(review => review.RestaurantId == id).ToList();
+      thisRestaurant.Reviews = reviews;
       return View(thisRestaurant);
     }
 
