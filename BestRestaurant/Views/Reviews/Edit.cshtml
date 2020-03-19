@@ -1,17 +1,16 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 
-@model BestRestaurant.Models.Restaurant
+@model BestRestaurant.Models.Review
 
-<h2>Edit</h2>
+<h2>Edit Review on @Model.Date</h2>
 
-<h4>Edit this restaurant: @Html.DisplayFor(model => model.Name)</h4>
-
-@using (Html.BeginForm("Update", "Restaurants"))
+@using (Html.BeginForm("Update", "Reviews"))
 {
     @Html.HiddenFor(model => model.ReviewId)
     @Html.HiddenFor(model => model.Date)
+    @Html.HiddenFor(model => model.Name)
     @Html.HiddenFor(model => model.RestaurantId)
 
     @Html.LabelFor(model => model.Rating)
@@ -23,4 +22,4 @@
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to Restaurant", "Index")</p> *@
+<p>@Html.ActionLink("Back to restaurant", "Details", "Restaurants", new { id = Model.RestaurantId })</p>

@@ -39,13 +39,19 @@ namespace BestRestaurant.Controllers
       return RedirectToAction("Index", "Restaurants", id);
     }
 
-    // public ActionResult Edit(int id)
-    // {
-    //   var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
-    //   ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Type");
-    //   return View(thisRestaurant);
-    // }
+    public ActionResult Edit(int id)
+    {
+      var thisReview = _db.Reviews.FirstOrDefault(reviews => reviews.ReviewId == id);
+      return View(thisReview);
+    }
 
+    [HttpPost]
+    public ActionResult Update(Review review)
+    {
+      _db.Entry(review).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", "Restaurants", new { id = review.RestaurantId });
+    }
     // [HttpPost]
     // public ActionResult Update(Restaurant restaurant, int CuisineId)
     // {

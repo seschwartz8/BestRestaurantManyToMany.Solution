@@ -24,6 +24,7 @@
     <p>Name: @review.Name</p>
     <p>Rating: @review.Rating</p>
     <p>@review.Text</p>
+    <p>@Html.ActionLink("Edit this review", "Edit", "Reviews", new { id = @review.ReviewId })</p>
     <hr/>
   </div>
 }
