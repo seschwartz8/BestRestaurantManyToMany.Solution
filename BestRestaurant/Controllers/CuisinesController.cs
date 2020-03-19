@@ -16,6 +16,7 @@ namespace BestRestaurant.Controllers
       _db = db;
     }
 
+    [HttpGet("/cuisines")]
     public ActionResult Index()
     {
       List<Cuisine> model = _db.Cuisines.ToList();

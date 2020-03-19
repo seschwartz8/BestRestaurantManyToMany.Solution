@@ -23,6 +23,7 @@ namespace BestRestaurant.Controllers
       _db = db;
     }
 
+    [HttpGet("/restaurants")]
     public async Task<ActionResult> Index()
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
