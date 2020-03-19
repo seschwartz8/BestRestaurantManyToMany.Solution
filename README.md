@@ -78,6 +78,9 @@ C#/.NET MVC website that organizes restaurant based on cuisine. This application
 - \$git clone "insert your cloned URL here"
 - Change directory to the BestRestaurant directory, within the BestRestaurant.Solution directory
 - \$dotnet restore
+- Recreate our database structure with migration:
+  - \$dotnet ef migrations add Initial
+  - \$dotnet ef database update
 - \$dotnet run
 - The app should be hosted on http://localhost:5000/
 - Use the app at this URL in the browser!
