@@ -23,16 +23,6 @@ namespace BestRestaurant.Controllers
       _db = db;
     }
 
-    // public async Task<ActionResult> Index()
-    // {
-    //   var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-    //   var currentUser = await _userManager.FindByIdAsync(userId);
-    //   ViewBag.Cuisines = (List<Cuisine>) _db.Cuisines.ToList();
-
-    //   var userRestaurants = _db.Restaurants.Where(entry => entry.User.Id == currentUser.Id);
-    //   return View(userRestaurants);
-    // }
-
     [HttpGet]
     public ActionResult Create(int id)
     {
@@ -43,23 +33,10 @@ namespace BestRestaurant.Controllers
     [HttpPost]
     public ActionResult Create(Review review, int id)
     {
-      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      // var currentUser = await _userManager.FindByIdAsync(userId);
-      // restaurant.User = currentUser;
       review.RestaurantId = id;
       _db.Reviews.Add(review);
-      // if (CuisineId != 0)
-      // {
-      //   _db.CuisineRestaurant.Add(new CuisineRestaurant() { CuisineId = CuisineId, RestaurantId = restaurant.RestaurantId });
-      // }
       _db.SaveChanges();
       return RedirectToAction("Index", "Restaurants", id);
-    }
-
-    public ActionResult Details(int id)
-    {
-      Review thisReview = _db.Reviews.FirstOrDefault(reviews => reviews.ReviewId == id);
-      return View(thisReview);
     }
 
     // public ActionResult Edit(int id)
@@ -77,39 +54,6 @@ namespace BestRestaurant.Controllers
     //     _db.CuisineRestaurant.Add(new CuisineRestaurant() { RestaurantId = restaurant.RestaurantId, CuisineId = CuisineId });
     //   }
     //   _db.Entry(restaurant).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
-
-    // public ActionResult AddCuisine(int id)
-    // {
-    //   var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
-    //   ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Type");
-    //   return View(thisRestaurant);
-    // }
-
-    // [HttpPost]
-    // public ActionResult AddCuisine(Restaurant restaurant, int CuisineId)
-    // {
-    //   if (CuisineId != 0)
-    //   {
-    //     _db.CuisineRestaurant.Add(new CuisineRestaurant() { RestaurantId = restaurant.RestaurantId, CuisineId = CuisineId });
-    //   }
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
-
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
-    //   return View(thisRestaurant);
-    // }
-
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
-    //   _db.Restaurants.Remove(thisRestaurant);
     //   _db.SaveChanges();
     //   return RedirectToAction("Index");
     // }
