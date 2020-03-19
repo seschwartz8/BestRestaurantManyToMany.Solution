@@ -55,10 +55,15 @@
 
 <details>
   <summary>WHAT WE WORKED ON 03.18.20</summary>
+  
   - Best Restaurant project as described in today's exercise plan
+  
   - Updated Best Restaurant project to include many-to-many structure and migrations
+  
   - Updated Best Restaurant project to include authentication and logging in/accounts
+  
   - Research on authorization
+  
 </details>
 
 
@@ -66,10 +71,15 @@
 
 <details>
   <summary>WHAT WE WORKED ON 03.19.20</summary>
+  
   - Updated Best Restaurant project to include Review objects within restaurants
+  
   - Updated Best Restaurants project to have css/styles
+  
   - Interview prep/whiteboarding questions
+  
   - Continued research and practice problems on advanced topics, since we finished the day's work
+  
 </details>
 
 ## Description
