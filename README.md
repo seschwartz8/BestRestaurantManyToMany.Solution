@@ -93,6 +93,7 @@ C#/.NET MVC website that organizes restaurant based on cuisine. This application
 - \$git clone "insert your cloned URL here"
 - Change directory to the BestRestaurant directory, within the BestRestaurant.Solution directory
 - \$dotnet restore
+- Delete the migrations folder
 - Recreate our database structure with migration:
   - \$dotnet ef migrations add Initial
   - \$dotnet ef database update
